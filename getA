@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# cd ~/Documents/tunnel
+# wget https://github.com/trailofbits/algo/archive/master.zip
+# wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-193.0.0-linux-x86_64.tar.gz
+# unzip master.zip
+# tar -
+# ssh-keygen && google1
+rm master.zip
+cd ./algo-master
+apt-get install build-essential libssl-dev libffi-dev python-dev python-pip python-setuptools python-virtualenv -y
+# gcloud init
+sleep 2
+echo "OK......"
+python -m virtualenv env && source env/bin/activate && python -m pip install -U pip && python -m pip install -r requirements.txt
+ansible-playbook deploy.yml -t gce,ssh_tunneling,vpn,cloud -e 'credentials_file=../the.json ssh_public_key=../key.pub gce_server_name=Aust zone=australia-southeast1-a'

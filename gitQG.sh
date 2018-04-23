@@ -1,15 +1,16 @@
 #!/bin/bash
 ## GIT QUIK
 
-TYPE=$1
-OWNER=$2
-NAME=$3
-README=$4
 
 if [ -z "$1" ]; then 
 	echo "Usage: $0 n/e <NEW>or<EXIST> dnt/t <REPO OWNER> <REPO NAME> <README MESSAGE>"
 	exit
 fi
+
+TYPE=$1
+OWNER=$2 # (trendy or defnottrendy?)
+NAME=$3
+README=$4
 
 #dnt
 if [ $2=="dnt" ]; then 
@@ -19,6 +20,7 @@ fi
 #t
 if [ $2=="t" ]; then 
 	$OWNER="trendy77"
+	
 	echo "<REPO OWNER> is $OWNER"
 fi
 # new or existing?
